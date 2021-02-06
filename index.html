@@ -6,88 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css"
+        integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w=="
+        crossorigin="anonymous" />
 </head>
 
 <body>
     <p class="title">data jumlah vaksinasi covid-19: <span class="date"></span></p>
     <div class="flex">
 
-            <div class="item">
-                <p>jumlah orang yang sudah mendapatkan vaksin pertama</p>
-                <p class="one-vaccine"></p>
-            </div>
-            <div class="item ">
-                <p>jumlah orang yang sudah mendapatkan vaksin kedua</p>
-                <p class="two-vaccine"></p>
-            </div>
-            <div class="item">
-                <p>total orang yang sudah divaksinasi</p>
-                <p class="total-today"></p>
-            </div>
-        
-            
-
+        <div class="item">
+            <p>jumlah orang yang sudah mendapatkan vaksin pertama</p>
+            <p class="one-vaccine"></p>
+        </div>
+        <div class="item">
+            <p>jumlah orang yang sudah mendapatkan vaksin kedua</p>
+            <p class="two-vaccine"></p>
+        </div>
+        <div class="item">
+            <p>total orang yang sudah divaksinasi</p>
+            <p class="total-today"></p>
+        </div>
+    </div>
+    <div class="chart-container">
+        <canvas id="chart" width="100%"></canvas>
     </div>
     <div class="table-container">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Tanggal</th>
-                    <th>Total Vaksinasi</th>
-                    <th>Jumlah Vaksinasi Satu Dosis</th>
-                    <th>Jumlah Vaksinasi Dua Dosis</th>
-                </tr>
-            </thead>
-            <tbody>
-    
-            </tbody>
-        </table>
+        <div class="table-overflow">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Total Vaksinasi</th>
+                        <th>Jumlah Vaksinasi Satu Dosis</th>
+                        <th>Jumlah Vaksinasi Dua Dosis</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
-    
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="./papaparse.js"></script>
-    <script>
-        $(document).ready(function () {
-   
-            $.ajax({
-                url: "https://covid.ourworldindata.org/data/vaccinations/country_data/Indonesia.csv",
-                success: function (data) {
-                   
-                    let convertJson = Papa.parse(data);
-                 console.log(convertJson.data[2][0])
-                    let allRows = data.split(/\r?\n|\r/);
-                    let getLatestData = allRows[allRows.length - 2];
-                    let splitLatestData = getLatestData.split(",");
-                    let latestDate = splitLatestData[1];
-                    let total_vaccine_one = parseInt(splitLatestData[5]);
-                    let total_vaccine_two = splitLatestData[6];
-
-                    total_vaccine_two === "" ? total_vaccine_two = 0 : total_vaccine_two = parseInt(total_vaccine_two);
-
-                    let total = total_vaccine_one + total_vaccine_two;
-                    let table;
-                    for (let singleRow = 1; singleRow < allRows.length; singleRow++) {
-                        table += '<tr>'
-                        let rowCells = allRows[singleRow].split(",");
-                        rowCells.splice(0, 1);
-                        rowCells.splice(1, 2);
-                        for (let rowCell = 0; rowCell < rowCells.length; rowCell++) {
-                            table += '<td>';
-                            table += rowCells[rowCell];
-                            table += '</td>';
-                        }
-                        table += '</tr>';
-                    }
-
-                    $("tbody").append(table);
-                    $(".date").html(latestDate)
-                    $(".one-vaccine").html(total_vaccine_one);
-                    $(".two-vaccine").html(total_vaccine_two);
-                    $(".total-today").html(total)
-                }
-            })
-        })
-    </script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
+        integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw=="
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
 
 </html>
