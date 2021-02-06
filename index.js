@@ -78,6 +78,7 @@ $(document).ready(function () {
             $(".total-today").html(latestTotal)
             $(".table").DataTable();
 
+            //FOR MAKE CHART
             let makeChart = new Chart(chart, {
                 type: 'line',
                 data: {
