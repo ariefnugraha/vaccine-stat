@@ -26,8 +26,12 @@ body {
     text-transform: capitalize;
 }
 
+.flex .item:last-child {
+    margin-right: 0px;
+}
+
 .flex .item p:first-child {
-    font-weight: bold;
+    height: 50px;
 }
 
 .flex .item p:last-child {
@@ -35,18 +39,40 @@ body {
     font-weight: bold;
 }
 
-.table-container {
-    margin-top: 40px;
-    background: #ffffff;
-    padding: 40px;
-    border-radius: 5px;
+.flex .item .one-vaccine {
+    color: #52b788;
+}
+.flex .item .two-vaccine {
+    color: #7161ef;
 }
 
+.flex .item .total-today {
+    color: #0096c7;
+}
+
+.table-container {
+ 
+    background-color: #ffffff;
+    margin-right: 20px;
+}
+
+.chart-container, .table-container {
+    background-color: #ffffff;
+    padding: 40px;
+    margin: 40px 0px;
+    border-radius: 10px;
+}
+
+
+.table-overflow {
+    overflow-x: auto;
+}
 table {
     width: 100%;
     border: solid 1px #777777;
     padding: 0px;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 table, td, th {
@@ -73,3 +99,73 @@ tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
+.dataTables_wrapper {
+    position: relative;
+}
+.dataTables_length {
+    display: inline-block;
+}
+.dataTables_filter label{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.dataTables_info {
+    margin: 20px 0;
+}
+
+.dataTables_paginate .previous {
+    background-color: #004e98;
+    display: inline-block;
+    margin-right: 10px;
+    color: #ffffff;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.dataTables_paginate span a {
+    display: inline-block;
+    margin: 0 5px;
+    color: #777777;
+    cursor: pointer;
+}
+
+.dataTables_paginate .current {
+    color: #004e98;
+    font-weight: bold;
+}
+
+.dataTables_paginate .next {
+    background-color: #004e98;
+    color: #ffffff;
+    margin-left: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 576px) {
+    .flex {
+        flex-direction: column;
+    }
+
+    .flex .item {
+        width: inherit;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    
+    .chart-container, .table-container {
+        width: inherit;
+    }
+
+    .dataTables_filter label {
+        position: static;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 767px) {
+    .flex .item p:first-child {
+        height: 100px;
+    }
+}
