@@ -17,7 +17,7 @@ body {
 
 
 .vaccination {
-    background-color: #1d3557;
+    background-color: #db222a;
     padding: 20px;
     color: #ffffff;
     text-align: center;
@@ -49,7 +49,7 @@ body {
     padding: 20px;
     text-align: center;
     text-transform: capitalize;
-    background-color: #15263d;
+    background-color: #c52029;
 }
 
 .vaccination .flex .item:last-child {
