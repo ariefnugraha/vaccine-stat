@@ -20,8 +20,8 @@ $(document).ready(function () {
             let getLatestData = allRows[allRows.length - 2];
             let splitLatestData = getLatestData.split(",");
 
-            let latestDate = new Date(splitLatestData[1]); //GET DATE;
-            let formatLatestDate = latestDate.toString().substring(4, 15);
+           // let latestDate = new Date(splitLatestData[1]); //GET DATE;
+           // let formatLatestDate = latestDate.toString().substring(4, 15);
             let latest_total_vaccine_one = parseInt(splitLatestData[5]) //GET AMOUNT OF PEOPLE WHO GET FIRST VACCINATION;
             let latest_total_vaccine_two = splitLatestData[6] //GET AMOUNT OF PEOPLE WHO GET SECOND VACCINATION;
 
@@ -93,7 +93,7 @@ $(document).ready(function () {
           
             */
             //$("tbody").append(table);
-            $(".date").html(formatLatestDate);
+            //$(".date").html(formatLatestDate);
             $(".increment-one").html("+ " + diffrent_one_vaccine_today_yesterday.toLocaleString("id-Id"));
             $(".increment-two").html("+ " + diffrent_second_vaccine_today_yesterday.toLocaleString("id-Id"));
             $(".increment-total").html("+ " + diffrent_total_vaccine_today_yesterday.toLocaleString("id-Id"))
@@ -138,7 +138,9 @@ $(document).ready(function () {
         url: "https://covid.ourworldindata.org/data/latest/owid-covid-latest.json",
         success: function (data) {
             let getData = data.IDN;
-            console.log(getData);
+            let date = new Date(getData.last_updated_date);
+            let formatDate = date.toString().substring(4, 15);
+
             let totalVaccine = getData.total_vaccinations;
             let oneVaccine = getData.people_vaccinated;
             let twoVaccine = getData.people_fully_vaccinated;
@@ -150,6 +152,7 @@ $(document).ready(function () {
             let newDeaths = getData.new_deaths;
             let newTest = getData.new_tests;
 
+            $(".date").html(formatDate);
             $(".one-vaccine").html(oneVaccine.toLocaleString("id-Id"));
             $(".two-vaccine").html(twoVaccine.toLocaleString("id-Id"));
             $(".total-vaccine").html(totalVaccine.toLocaleString("id-Id"));
