@@ -12,22 +12,59 @@
 </head>
 
 <body>
-    <p class="title">data jumlah vaksinasi covid-19: <span class="date"></span></p>
-    <div class="flex">
-
-        <div class="item">
-            <p>jumlah orang yang sudah mendapatkan vaksin pertama</p>
-            <p class="one-vaccine"></p>
-        </div>
-        <div class="item">
-            <p>jumlah orang yang sudah mendapatkan vaksin kedua</p>
-            <p class="two-vaccine"></p>
-        </div>
-        <div class="item">
-            <p>total orang yang sudah divaksinasi</p>
-            <p class="total-today"></p>
+    <p class="title">Perkembangan Covid-19 di Indonesia </p>
+    <div class="vaccination">
+        <p class="title">Data Vaksinasi Covid-19</p>
+        <p class="last-update">Update Terakhir: <span class="date"></span></p>
+        <p class="source"><small>Data dilansir dari Our World in Data</small></p>
+        <div class="flex">
+            <div class="item">
+                <p>vaksinasi tahap 1</p>
+                <p class="one-vaccine"></p>
+                <p class="increment-one"></p>
+            </div>
+            <div class="item">
+                <p>vaksinasi tahap 2</p>
+                <p class="two-vaccine"></p>
+                <p class="increment-two"></p>
+            </div>
+            <div class="item">
+                <p>total orang yang sudah divaksinasi</p>
+                <p class="total-vaccine"></p>
+                <p class="increment-total"></p>
+            </div>
         </div>
     </div>
+
+    <div class="infection">
+        <p class="title">jumlah terpapar covid-19</p>
+        <div class="flex">
+            <div class="item">
+                <p>konfirmasi kasus positif</p>
+                <p class="confirm-case"></p>
+                <p class="increment-confirm-case"></p>
+            </div>
+            <div class="item">
+                <p>kasus aktif</p>
+                <p class="active-case"></p>
+            </div>
+            <div class="item">
+                <p>sembuh</p>
+                <p class="recovered"></p>
+            </div>
+            <div class="item">
+                <p>meninggal</p>
+                <p class="death"></p>
+                <p class="increment-death"></p>
+            </div>
+            <div class="item">
+                <p>total tes</p>
+                <p class="test"></p>
+                <p class="increment-test"></p>
+            </div>
+        </div>
+    </div>
+    <!--
     <div class="chart-container">
         <canvas id="chart" width="100%"></canvas>
     </div>
@@ -48,9 +85,7 @@
         </div>
     </div>
 
-
-
-
+-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
