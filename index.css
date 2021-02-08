@@ -2,56 +2,90 @@ body {
     margin: 0;
     font-family: sans-serif;
     padding: 50px;
-    background-color: #EBEDED;
 }
 
 .title {
-    font-size: 20px;
-    text-transform: capitalize;
-    color: #004e98;
+    font-size: 30px;
+    text-transform: uppercase;
+    text-align: center;
     font-weight: bold;
 }
-.flex {
+
+.date, .date-title {
+    text-align: center;
+}
+
+
+.vaccination {
+    background-color: #1d3557;
+    padding: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.vaccination .title, .infection .title {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.vaccination .last-update {
+    text-align: center;
+    margin-block-end: 0px;
+}
+
+.vaccination .source {
+    margin-block-start: 5px;
+}
+
+.vaccination .flex, .infection .flex {
     display: flex;
     flex-flow: row nowrap;
 }
 
-.flex .item {
+.vaccination .flex .item {
     width: calc(33.3% - 20px);
     margin-right: 20px;
-    background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
     text-align: center;
     text-transform: capitalize;
+    background-color: #15263d;
 }
 
-.flex .item:last-child {
+.vaccination .flex .item:last-child {
     margin-right: 0px;
 }
 
-.flex .item p:first-child {
-    height: 50px;
-}
-
-.flex .item p:last-child {
+.vaccination .flex .item p:nth-child(2) {
     font-size: 24px;
     font-weight: bold;
 }
 
-.flex .item .one-vaccine {
-    color: #52b788;
-}
-.flex .item .two-vaccine {
-    color: #7161ef;
-}
-
-.flex .item .total-today {
-    color: #0096c7;
+.infection {
+    background-color: #db222a;
+    color: #ffffff;
+    padding: 20px;
 }
 
+.infection .flex .item {
+    width: calc(25% - 20px);
+    margin-right: 20px;
+    background-color: #c52029;
+    padding: 20px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.infection .flex .item:last-child {
+    margin-right: 0px;
+}
+
+.infection .flex .item p:nth-child(2) {
+    font-size: 24px;
+    font-weight: bold;
+}
+/*
 .table-container {
- 
     background-color: #ffffff;
     margin-right: 20px;
 }
@@ -140,8 +174,20 @@ tr:nth-child(even) {
     padding: 5px;
     cursor: pointer;
 }
-
+*/
 @media (max-width: 576px) {
+    .vaccination .flex, .infection .flex {
+        flex-flow: column wrap;
+    }
+
+    .vaccination .flex .item, .infection .flex .item {
+        width: unset;
+        margin-bottom: 20px;
+        margin-right: 0px;
+    }
+
+
+    /*
     .flex {
         flex-direction: column;
     }
@@ -159,10 +205,39 @@ tr:nth-child(even) {
     .dataTables_filter label {
         position: static;
     }
+    */
 }
 
 @media (min-width: 577px) and (max-width: 767px) {
+    .infection .flex {
+        flex-flow: row wrap;
+    }
+
+    .infection .flex .item {
+        width: calc(26.7% - 20px);
+        margin-bottom: 20px;
+    }
+    .infection .flex .item:nth-child(3n + 3) {
+        margin-right: 0px;
+    }
+    /*
     .flex .item p:first-child {
         height: 100px;
+    }
+    */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .infection .flex {
+        flex-flow: row wrap;
+    }
+
+    .infection .flex .item {
+        width: calc(28% - 20px);
+        margin-bottom: 20px;
+    }
+
+    .infection .flex .item:nth-child(3n + 3) {
+        margin-right: 0px;
     }
 }
